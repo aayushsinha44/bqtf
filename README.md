@@ -1,6 +1,6 @@
 # BQTF - Biqquery Query Testing Framework
 
-Automated testing framework for query of big query. 
+Automated testing framework for query of big query. This is not complete yet (Work in progress).
 
 ## Problems with testing a query
 When the query is simple and small, it doesnot requires any automated testing. It can be related to code for sum of 2 numbers, which doesnot requires any automated testing. But when the query is complex enough, the only testing we are left with is to test with existing data in the database. Now for some small changes to the query, we are required to test it again.
