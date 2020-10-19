@@ -1,0 +1,10 @@
+version: 1.0
+type: data
+name: common.sub_groups
+schema:
+  - id
+values:
+  - row:
+    - 1
+  - row:
+    - 2

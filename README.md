@@ -25,3 +25,19 @@ Now with this construct we made some dummy data for customer and we can calculat
 BQTF automates the complete process of query testing and also solves the above problems. It requires YAML files as descriptive input of the generating query with dummy data and runs the query with the provide bigquery credentials. 
 
 Sample .yml files can be found in examples folder.
+
+
+## Steps to execute
+
+Set Environment Variable with the location of JSON configuration file of Bigquery
+
+For linux / Macos
+`export GOOGLE_APPLICATION_CREDENTIALS="/home/user/Downloads/service-account-file.json"`
+
+For windows
+`set GOOGLE_APPLICATION_CREDENTIALS=C:\Users\Aayush\Downloads\Project-b5c5cf54ec5c.json`\
+
+Command to execute
+```
+python main.py --path=C:\Users\Aayush\Documents\d\code\bqtf\examples\test\build_time_test.yml
+```

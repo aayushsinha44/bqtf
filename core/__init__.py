@@ -16,11 +16,14 @@ def execute():
   
   for test_name, q in query.items():
     print("===============" + test_name + "===============")
-    print(q)
-  # SET ENV 'GOOGLE_APPLICATION_CREDENTIALS'
+    results = get_big_query_output(q)
+    for row in results:
+      print(row)
   
 
 def get_big_query_output(query):
   client = bigquery.Client()
+  query_job = client.query(query)
+  print("This query will process {} bytes.".format(query_job.total_bytes_processed))
   results = query_job.result() 
-  return result
+  return results

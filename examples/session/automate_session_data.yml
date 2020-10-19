@@ -1,0 +1,35 @@
+version: 1.0
+type: data
+name: automate.automate_test_sessions_partitioned
+schema:
+  - user.user_id
+  - user.group_id
+  - user.sub_group_id
+  - build_id
+  - duration
+  - created_day
+  - hashed_id
+  - _PARTITIONTIME
+values:
+  - row:
+    - 2
+    - 1
+    - 1
+    - 1234
+    - 15.0
+    - '2019-05-09 22:46:33.334110 UTC'
+    - 'd8c61ecc7532bef930729790fb310155758cfb0d'
+    - '2019-02-01 22:46:33.334110 UTC'
+  - row:
+    - 1
+    - 1
+    - 1
+    - 1234
+    - 15.0
+    - '2020-04-02 22:46:33.334110 UTC'
+    - 'd8c61ecc7532bef930729790fb310155758cfb01'
+    - '2020-04-01 22:46:33.334110 UTC'
+output_formating:
+  created_day: "PARSE_TIMESTAMP(\"%Y-%m-%d %H:%M:%E6S UTC\", \"#[value]\")"
+  _PARTITIONTIME: "PARSE_TIMESTAMP(\"%Y-%m-%d %H:%M:%E6S UTC\", \"#[value]\")"
+  hashed_id: "\"#[value]\""

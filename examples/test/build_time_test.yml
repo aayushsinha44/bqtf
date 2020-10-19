@@ -1,0 +1,37 @@
+version: 1.0
+type: test
+preload: # Loads the data from below yml files before every test
+  - '../common/users.yml'
+  - '../common/sub_groups.yml'
+sql: '../sql/build_time.sql'
+name: Automate Build Trends  # TEST CASE name
+tables:
+  - automate.automate_test_sessions_partitioned
+  - common.users
+  - common.sub_groups
+testcases:
+  - testcase:
+      name: Test 1 # This should be unique
+      input: 
+        # can be table_data or data_path
+        - data: # define the values for you table
+            name: common.sub_groups # this will overide the data for preload
+            schema:
+              - id
+            values:
+              - row:
+                - 1
+              - row:
+                - 2
+        - data_path: '../session/automate_session_data.yml' # import data for you table
+      output:
+        schema:
+          - automate_build_time_timeline
+          - automate_build_time_average_build_time
+          - automate_build_time_average_session_count
+        values:
+          - row:
+            - '2020-04-02 00:00:00'
+            - '0.007858796296296296'
+            - 28.0
+
